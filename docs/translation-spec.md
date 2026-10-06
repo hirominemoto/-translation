@@ -173,12 +173,13 @@ AIにとって実感のない語（例：「こわい（畏れ）」）でも、
 | `data/emotion-words.csv` | 語リスト（id・語・語義・読み・カテゴリ・意味・近い語・例文） |
 | `data/dictionary.json` | 翻訳データ（**正本**）。ここを編集する |
 | `docs/dictionary.md` | レビュー用の表示。`python3 scripts/render_dictionary.py` で自動生成 |
-| `scripts/check_dictionary.py` | 自動チェック：語リストとの一致／必須欄／禁止語／因子の重複 |
+| `scripts/check_dictionary.py` | 自動チェック：語リストとの一致／必須欄／禁止語／因子の重複／他者の評価・強度の値 |
+| `app/data.js` | アプリ用のデータ。`python3 scripts/build_app_data.py` で自動生成 |
 
-翻訳を追加・修正したら、チェックとレビュー用ページの再生成をセットで行う：
+翻訳を追加・修正したら、チェックとレビュー用ページ・アプリ用データの再生成をセットで行う：
 
 ```
-python3 scripts/check_dictionary.py && python3 scripts/render_dictionary.py
+python3 scripts/check_dictionary.py && python3 scripts/render_dictionary.py && python3 scripts/build_app_data.py
 ```
 
 翻訳例は `docs/dictionary.md` を参照。
