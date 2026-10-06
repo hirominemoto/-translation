@@ -8,9 +8,9 @@ AIとコミュニケーションをとるための翻訳ツール。
 
 | STEP | 内容 | 成果物 | 状態 |
 |---|---|---|---|
-| 0 | 翻訳ルールを決める | [`docs/translation-spec.md`](docs/translation-spec.md) | v0.2 |
+| 0 | 翻訳ルールを決める | [`docs/translation-spec.md`](docs/translation-spec.md) | v0.2.1 |
 | 1 | 感情語を集める | [`data/emotion-words.csv`](data/emotion-words.csv) | 55項目（53語、うち3語は意味ごとに分割） |
-| 2 | 翻訳する（試訳 → レビュー → 残りを翻訳 → 自動チェック → 最終レビュー） | [`data/dictionary.json`](data/dictionary.json) ／ 表示用 [`docs/dictionary.md`](docs/dictionary.md) | 試訳 14 / 55 |
+| 2 | 翻訳する（試訳 → レビュー → 残りを翻訳 → 自動チェック → 最終レビュー） | [`data/dictionary.json`](data/dictionary.json) ／ 表示用 [`docs/dictionary.md`](docs/dictionary.md) | 初稿 55 / 55（レビュー中） |
 | 3 | アプリにする（静的Webアプリ） | `app/` | 未着手 |
 
 ### 方針
