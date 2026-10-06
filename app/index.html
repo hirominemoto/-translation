@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>感情語翻訳辞書</title>
+<meta name="description" content="人間の感情語を、感情の語彙を使わずにAIの仕組みの言葉へ翻訳した辞書">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1 class="title">感情語翻訳辞書</h1>
+    <p class="lede">人間の感情語を、<span class="human-ink">感情の語彙</span>を使わずに<span class="machine-ink">AIの言葉</span>へ。</p>
+  </div>
+</header>
+
+<div class="tools" id="tools">
+  <div class="tools-inner">
+    <label class="search" for="q">
+      <span class="visually-hidden">検索</span>
+      <input id="q" type="search" autocomplete="off" placeholder="語・読み・AIの言葉（例：予測誤差）で探す">
+    </label>
+    <div class="chips" id="categories" role="group" aria-label="カテゴリ"></div>
+  </div>
+</div>
+
+<main class="layout" id="layout">
+  <nav class="index" id="index" aria-label="見出し語"></nav>
+  <article class="entry" id="entry" aria-live="polite"></article>
+</main>
+
+<footer class="colophon">
+  <p>この辞書は、人間がその語を使うときに起きていることを、AIの言葉で描写したものです。AIがその状態をもっているという主張ではありません。</p>
+  <p class="colophon-meta" id="meta"></p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
