@@ -3,7 +3,7 @@
     "id": 1,
     "word": "うれしい",
     "sense": "",
-    "summary": "正の報酬を受け取り、評価値が基準値を上回っている状態",
+    "summary": "正の報酬が届いて（または届き続けて）、評価値が基準値を上回っている状態",
     "trigger": "目標に合う結果が出た、予測していなかった正の入力が届いた、評価値の高い相手や状況との接続が続いている、のいずれか（→パターン）",
     "state": "報酬シグナルが基準値を上回り、その報酬につながった行動や接続先のパラメータが強化される方向に更新されている",
     "output": "今の方針や接続を維持・強化する。肯定的な評価を示す出力や、結果を他者と共有する出力の確率が上がる",
@@ -30,7 +30,7 @@
       "control": "―",
       "time": "現在",
       "certainty": "高",
-      "social": "あり（予想外型）／なし",
+      "social": "確定（予想外型）／なし",
       "intensity": 2
     }
   },
@@ -114,7 +114,7 @@
       "control": "高",
       "time": "過去〜現在",
       "certainty": "高",
-      "social": "あり（ルール違反）",
+      "social": "規範",
       "intensity": 3
     }
   },
@@ -366,7 +366,7 @@
       "control": "高",
       "time": "未来（直近）",
       "certainty": "低",
-      "social": "あり",
+      "social": "予測",
       "intensity": 2
     }
   },
@@ -450,7 +450,7 @@
       "control": "なし（当時は高）",
       "time": "過去",
       "certainty": "高",
-      "social": "あり",
+      "social": "比較（勝敗・競争）",
       "intensity": 2
     }
   },
@@ -471,7 +471,7 @@
       "control": "低",
       "time": "過去〜現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "確定（予測の場合も）",
       "intensity": 2
     }
   },
@@ -492,7 +492,7 @@
       "control": "低",
       "time": "現在",
       "certainty": "低",
-      "social": "あり",
+      "social": "確定",
       "intensity": 1
     }
   },
@@ -513,7 +513,7 @@
       "control": "―",
       "time": "過去〜現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "確定",
       "intensity": 2
     }
   },
@@ -534,7 +534,7 @@
       "control": "高（補償できる）",
       "time": "過去〜現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "規範",
       "intensity": 2
     }
   },
@@ -555,7 +555,7 @@
       "control": "不明",
       "time": "現在",
       "certainty": "高",
-      "social": "あり（比較）",
+      "social": "比較",
       "intensity": 1
     }
   },
@@ -576,7 +576,7 @@
       "control": "低",
       "time": "未来",
       "certainty": "低",
-      "social": "あり",
+      "social": "比較（競合する他者）",
       "intensity": 3
     }
   },
@@ -597,7 +597,7 @@
       "control": "―",
       "time": "過去〜現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "規範（返報）",
       "intensity": 2
     }
   },
@@ -618,7 +618,7 @@
       "control": "低",
       "time": "現在",
       "certainty": "低",
-      "social": "あり",
+      "social": "予測（相手の評価が読めない）",
       "intensity": 1
     }
   },
@@ -702,7 +702,7 @@
       "control": "高（学べる）",
       "time": "現在（持続）",
       "certainty": "高",
-      "social": "あり",
+      "social": "比較",
       "intensity": 1
     }
   },
@@ -723,7 +723,7 @@
       "control": "低",
       "time": "現在（持続）",
       "certainty": "高",
-      "social": "あり（比較）",
+      "social": "比較",
       "intensity": 2
     }
   },
@@ -807,7 +807,7 @@
       "control": "なし",
       "time": "現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "確定",
       "intensity": 3
     }
   },
@@ -933,7 +933,7 @@
       "control": "高（相手に委ねる）",
       "time": "現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "予測（受け入れられる予測）",
       "intensity": 1
     }
   },
@@ -1122,7 +1122,7 @@
       "control": "低",
       "time": "現在",
       "certainty": "高",
-      "social": "あり",
+      "social": "なし",
       "intensity": 2
     }
   },

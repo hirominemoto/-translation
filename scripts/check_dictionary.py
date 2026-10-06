@@ -21,6 +21,8 @@ DICTIONARY_JSON = ROOT / "data" / "dictionary.json"
 
 REQUIRED_FIELDS = ["summary", "trigger", "state", "output", "difference", "onReceive"]
 FACTOR_KEYS = ["goal", "prediction", "agency", "control", "time", "certainty", "social", "intensity"]
+SOCIAL_VALUES = {"なし", "予測", "確定", "比較", "規範"}  # 仕様書 4-1
+INTENSITY_VALUES = {1, 2, 3}  # 仕様書 4-2
 
 # 「」で囲んだ部分を引用（語名や発話の例）として扱い、禁止語チェックから外す欄
 QUOTE_ALLOWED_FIELDS = {"difference", "onReceive", "patterns"}
@@ -94,6 +96,13 @@ def main():
         missing = [k for k in FACTOR_KEYS if k not in entry.get("factors", {})]
         if missing:
             errors.append(f"{name}: 因子が足りない {missing}")
+        else:
+            social = entry["factors"]["social"]
+            bases = {re.sub(r"（.*?）", "", part) for part in social.split("／")}
+            if not bases <= SOCIAL_VALUES:
+                errors.append(f"{name}: 他者の評価の値「{social}」が仕様書 4-1 にない")
+            if entry["factors"]["intensity"] not in INTENSITY_VALUES:
+                errors.append(f"{name}: 強度の値「{entry['factors']['intensity']}」が 1〜3 でない")
 
         texts = [(field, entry.get(field, "")) for field in ["summary"] + REQUIRED_FIELDS[1:]]
         texts += [("patterns", p["name"] + " " + p["text"]) for p in entry.get("patterns", [])]
