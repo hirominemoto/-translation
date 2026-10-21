@@ -1,0 +1,42 @@
+# main に入った内容から、app/ を GitHub Pages に公開する。
+# 公開前に辞書をチェックし、アプリ用データ（app/data.js）を作り直すので、
+# 辞書に問題があるときは公開されない。
+name: Deploy app to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check the dictionary
+        run: python3 scripts/check_dictionary.py
+
+      - name: Build app data
+        run: python3 scripts/build_app_data.py
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: app
+
+      - id: deployment
+        uses: actions/deploy-pages@v5
