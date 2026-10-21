@@ -11,7 +11,7 @@ AIとコミュニケーションをとるための翻訳ツール。
 | 0 | 翻訳ルールを決める | [`docs/translation-spec.md`](docs/translation-spec.md) | v0.3.1 |
 | 1 | 感情語を集める | [`data/emotion-words.csv`](data/emotion-words.csv) | 65項目（63語、うち3語は意味ごとに分割） |
 | 2 | 翻訳する（試訳 → レビュー → 残りを翻訳 → 自動チェック → 最終レビュー） | [`data/dictionary.json`](data/dictionary.json) ／ 表示用 [`docs/dictionary.md`](docs/dictionary.md) | 65 / 65（55語はレビュー2回反映、10語は追加分） |
-| 3 | アプリにする（静的Webアプリ） | [`app/`](app/) | 初版 |
+| 3 | アプリにする（静的Webアプリ） | [`app/`](app/) ／ [Webアプリ](https://hirominemoto.github.io/-translation/) | 初版・GitHub Pagesで公開 |
 
 ### 方針
 
@@ -20,7 +20,12 @@ AIとコミュニケーションをとるための翻訳ツール。
 
 ### アプリ
 
-`app/index.html` をブラウザで開くだけで動く（サーバー不要）。
+**Webアプリ：https://hirominemoto.github.io/-translation/**
+
+`main` にマージすると、GitHub Actions（`.github/workflows/pages.yml`）が辞書をチェックしてから、`app/` を GitHub Pages に自動で公開する。辞書のチェックに失敗したときは公開されない。
+初回だけ、リポジトリの Settings → Pages → Build and deployment の Source を「GitHub Actions」にしておく必要がある。
+
+`app/index.html` をブラウザで直接開いても動く（サーバー不要）。
 
 - 語・読み（ひらがな／カタカナどちらでも）で探す
 - AIの言葉で逆引きする（例：「予測誤差」「キュー」）
