@@ -111,9 +111,13 @@ def main():
             if hits:
                 errors.append(f"{name}: {field} に禁止語 {sorted(set(hits))}")
 
+    # （）の補足と「／」以降のパターン別の値を外した、本来の値どうしで比べる
+    def base(value):
+        return str(value).split("／")[0].split("（")[0]
+
     by_factors = {}
     for entry in entries:
-        key = tuple(str(entry.get("factors", {}).get(k)) for k in FACTOR_KEYS)
+        key = tuple(base(entry.get("factors", {}).get(k)) for k in FACTOR_KEYS)
         by_factors.setdefault(key, []).append(label(entry))
     for names in by_factors.values():
         if len(names) > 1:
