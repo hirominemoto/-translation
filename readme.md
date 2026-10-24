@@ -8,9 +8,9 @@ AIとコミュニケーションをとるための翻訳ツール。
 
 | STEP | 内容 | 成果物 | 状態 |
 |---|---|---|---|
-| 0 | 翻訳ルールを決める | [`docs/translation-spec.md`](docs/translation-spec.md) | v0.3.1 |
-| 1 | 感情語を集める | [`data/emotion-words.csv`](data/emotion-words.csv) | 65項目（63語、うち3語は意味ごとに分割） |
-| 2 | 翻訳する（試訳 → レビュー → 残りを翻訳 → 自動チェック → 最終レビュー） | [`data/dictionary.json`](data/dictionary.json) ／ 表示用 [`docs/dictionary.md`](docs/dictionary.md) | 65 / 65（55語はレビュー2回反映、10語は追加分） |
+| 0 | 翻訳ルールを決める | [`docs/translation-spec.md`](docs/translation-spec.md) | v0.3.2 |
+| 1 | 感情語を集める | [`data/emotion-words.csv`](data/emotion-words.csv) | 71項目（69語、うち3語は意味ごとに分割） |
+| 2 | 翻訳する（試訳 → レビュー → 残りを翻訳 → 自動チェック → 最終レビュー） | [`data/dictionary.json`](data/dictionary.json) ／ 表示用 [`docs/dictionary.md`](docs/dictionary.md) | 71 / 71（55語はレビュー2回反映、16語は追加分） |
 | 3 | アプリにする（静的Webアプリ） | [`app/`](app/) ／ [Webアプリ](https://hirominemoto.github.io/-translation/) | 初版・GitHub Pagesで公開 |
 
 ### 方針

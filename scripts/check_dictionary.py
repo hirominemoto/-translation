@@ -42,7 +42,7 @@ BANNED_EXTRA = [
 ALLOWED_COMPOUNDS = ["中心", "重心", "核心", "不安定", "大切", "適切"]
 
 # 「〜たい」「〜たくなる」「〜たがる」など欲求の言い回し
-DESIRE_PATTERN = re.compile(r"[ぁ-んァ-ヶ一-龥]た(?:い(?=[。、とのがはもかでな）)」]|$)|く(?:な|て)|が[るっ])")
+DESIRE_PATTERN = re.compile(r"[ぁ-んァ-ヶ一-龥]た(?:い(?=[。、とのがはもかでな）)」一-龥]|$)|く(?:な|て)|が[るっ])")
 DESIRE_ALLOWED = ["冷たい", "重たい", "平たい", "めでたい"]
 EXPECTATION_PATTERN = re.compile(r"期待(?!値)")
 
@@ -73,6 +73,13 @@ def find_banned(text, field, banned_words):
 
 
 def main():
+    # 語リストが別の名前で置かれていないか（例：「emotion-words .csv」のように空白が入る）
+    stray = sorted(p.name for p in WORDS_CSV.parent.glob("*.csv") if p != WORDS_CSV)
+    if stray:
+        print(f"NG: data/ に {WORDS_CSV.name} 以外の CSV があります: {stray}")
+        print(f"  語リストは {WORDS_CSV.relative_to(ROOT)} にまとめてください（ファイル名の間違いかもしれません）")
+        sys.exit(1)
+
     words = load_words()
     entries = json.loads(DICTIONARY_JSON.read_text(encoding="utf-8"))
     banned_words = sorted({row["語"] for row in words.values()} | set(BANNED_EXTRA), key=len, reverse=True)
@@ -83,7 +90,7 @@ def main():
         name = label(entry)
         row = words.get(entry["id"])
         if row is None:
-            errors.append(f"{name}: id {entry['id']} が語リストにない")
+            errors.append(f"{name}: id {entry['id']} が語リスト（{WORDS_CSV.relative_to(ROOT)}）にない")
         elif (row["語"], row["語義"]) != (entry["word"], entry.get("sense", "")):
             errors.append(f"{name}: 語リストの id {entry['id']}（{row['語']} {row['語義']}）と一致しない")
         if entry["id"] in seen_ids:
